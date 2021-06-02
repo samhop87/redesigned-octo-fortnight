@@ -49,4 +49,5 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           script: |
             cd /var/www/technicalbeatnik.co.uk
+            composer install
             php artisan migrate
