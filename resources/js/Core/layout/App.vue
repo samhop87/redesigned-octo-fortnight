@@ -3,7 +3,7 @@
         <div class="text-red-500">
             yep, test
         </div>
-        This is a test more
+        This is a test more more
     </div>
 </template>
 

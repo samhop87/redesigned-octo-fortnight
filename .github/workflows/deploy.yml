@@ -16,10 +16,11 @@ jobs:
       - name: Generate key
         run: php artisan key:generate
       - name: Directory Permissions
-        run: |
-        chown -R admin:www-data /var/www/technicalbeatnik.co.uk
-        chgrp -R www-data storage bootstrap/cache
-        chmod -R ug+rwx storage bootstrap/cache
+        run: chown -R admin:www-data /var/www/technicalbeatnik.co.uk
+      - name: Directory Permissions Two
+        run: chgrp -R www-data storage bootstrap/cache
+      - name: Directory Permissions Three
+        run: chmod -R ug+rwx storage bootstrap/cache
 
   build:
 
