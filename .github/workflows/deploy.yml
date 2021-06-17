@@ -5,8 +5,40 @@ on:
     branches: [ master ]
 
 jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Directory Permissions
+        run: |
+        chown -R admin:www-data /var/www/technicalbeatnik.co.uk
+        chgrp -R www-data storage bootstrap/cache
+        chmod -R ug+rwx storage bootstrap/cache
+
   build:
 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Compile assets for production
+        run: npm run production
+
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,25 +53,3 @@ jobs:
         with:
           source: "."
           target: "/var/www/technicalbeatnik.co.uk"
-
-      - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Directory Permissions
-        run: |
-        chown -R admin:www-data /var/www/technicalbeatnik.co.uk
-        cd /var/www/html/technicalbeatnik.co.uk
-        chgrp -R www-data storage bootstrap/cache
-        chmod -R ug+rwx storage bootstrap/cache
-
-      - name: Executing remote command
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          script: |
-          cd /var/www/html/technicalbeatnik.co.uk
-          php artisan migrate --force
-          npm install
-          npm run production
