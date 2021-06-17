@@ -14,11 +14,15 @@ jobs:
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Directory Permissions Two
-        run: chgrp -R www-data storage bootstrap/cache
-      - name: Directory Permissions Three
-        run: chmod -R ug+rwx storage bootstrap/cache
-      - name: Generate key
-        run: php artisan key:generate
+        uses: appleboy/ssh-action@main
+        with:
+          HOST: ${{ secrets.HOST }}
+          KEY: ${{ secrets.SSHKEY }}
+          USERNAME: ${{ secrets.USERNAME }}
+          script: |
+            chgrp -R www-data storage bootstrap/cache
+            chmod -R ug+rwx storage bootstrap/cache
+            php artisan key:generate
 
   build:
 
