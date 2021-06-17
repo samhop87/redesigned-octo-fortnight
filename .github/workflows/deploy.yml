@@ -21,10 +21,14 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           script: |
             cd /var/www/technicalbeatnik.co.uk
+            sudo chown -R ${{ secrets.USERNAME }}:www-data /var/www/html/technicalbeatnik.co.uk
             sudo chgrp -R www-data storage bootstrap/cache
             sudo chmod -R ug+rwx storage bootstrap/cache
             php artisan key:generate
-
+            php artisan migrate
+            php artisan cache:clear
+            php artisan config:clear
+            php artisan storage:link
   build:
 
     runs-on: ubuntu-latest
