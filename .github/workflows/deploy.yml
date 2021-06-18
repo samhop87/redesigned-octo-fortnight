@@ -22,7 +22,7 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           script: |
             cd /var/www/technicalbeatnik.co.uk
-            echo ${{ secrets.PASSWORD }} | sudo -S chown -R ${{ secrets.USERNAME }}:www-data /var/www/html/technicalbeatnik.co.uk
+#            echo ${{ secrets.PASSWORD }} | sudo -S chown -R ${{ secrets.USERNAME }}:www-data /var/www/html/technicalbeatnik.co.uk
             echo ${{ secrets.PASSWORD }} | sudo -S chgrp -R www-data storage bootstrap/cache
             echo ${{ secrets.PASSWORD }} | sudo -S chmod -R ug+rwx storage bootstrap/cache
             php artisan key:generate
@@ -30,8 +30,22 @@ jobs:
             php artisan cache:clear
             php artisan config:clear
             php artisan storage:link
-            npm install
-            npm run production
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Compile assets for production
+        run: npm run production
 
   deploy:
     runs-on: ubuntu-latest
