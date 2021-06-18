@@ -22,7 +22,6 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           script: |
             cd /var/www/technicalbeatnik.co.uk
-#            echo ${{ secrets.PASSWORD }} | sudo -S chown -R ${{ secrets.USERNAME }}:www-data /var/www/html/technicalbeatnik.co.uk
             echo ${{ secrets.PASSWORD }} | sudo -S chgrp -R www-data storage bootstrap/cache
             echo ${{ secrets.PASSWORD }} | sudo -S chmod -R ug+rwx storage bootstrap/cache
             php artisan key:generate
