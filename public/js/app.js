@@ -1852,10 +1852,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -37419,14 +37415,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-gray-400" }, [
-      _c("div", { staticClass: "text-red-500" }, [
-        _vm._v("\n        yep, test\n    ")
-      ]),
-      _vm._v(
-        "\n    changed the order, again, again, again im so close! again\n    one more time. check it outttt\n    curious to see if this works.\n"
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "w-full h-screen flex flex-col items-center justify-center text-center"
+      },
+      [
+        _c("h1", { staticClass: "font-display text-6xl" }, [
+          _vm._v("Technical Beatnik")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("- Coming Soon -")])
+      ]
+    )
   }
 ]
 render._withStripped = true
