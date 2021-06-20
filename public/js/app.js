@@ -37423,7 +37423,7 @@ var staticRenderFns = [
       },
       [
         _c("h1", { staticClass: "font-display text-6xl" }, [
-          _vm._v("Technical Beatnik")
+          _vm._v("Technical / Beatnik")
         ]),
         _vm._v(" "),
         _c("p", [_vm._v("- Coming Soon -")])
