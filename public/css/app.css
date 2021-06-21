@@ -32093,6 +32093,32 @@ select{
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.splitting-line {
+  height:6px;
+  width:0;
+  margin-top:100px;
+  background:black;
+  transform:rotate(-65deg);
+  transform-origin:left;
+  -webkit-animation:grow 1s linear forwards;
+          animation:grow 1s linear forwards;
+  position: absolute;
+  left: 45%;
+  top:100%
+}
+
+@-webkit-keyframes grow{
+  to {
+    width:300px;
+  }
+}
+
+@keyframes grow{
+  to {
+    width:300px;
+  }
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

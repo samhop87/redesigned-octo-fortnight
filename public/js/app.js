@@ -1852,6 +1852,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -37422,11 +37427,22 @@ var staticRenderFns = [
           "w-full h-screen flex flex-col items-center justify-center text-center"
       },
       [
-        _c("h1", { staticClass: "font-display text-6xl" }, [
-          _vm._v("Technical / Beatnik")
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("- Coming Soon -")])
+        _c("div", [
+          _c(
+            "div",
+            {
+              staticClass:
+                "font-display text-6xl flex flex-row items-center relative"
+            },
+            [
+              _c("h1", { staticClass: "mr-7" }, [_vm._v("Technical")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "splitting-line" }),
+              _vm._v(" "),
+              _c("h1", { staticClass: "ml-7" }, [_vm._v("Beatnik")])
+            ]
+          )
+        ])
       ]
     )
   }
