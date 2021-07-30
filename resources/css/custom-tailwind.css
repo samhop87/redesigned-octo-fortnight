@@ -1,0 +1,12 @@
+/*IMPORTS (TO BE IMPORTED)*/
+@layer utilities {
+    @variants responsive {
+        .font-readable {
+            font-size: 11px;
+        }
+
+        .font-mobile {
+            font-size: 9px;
+        }
+    }
+}

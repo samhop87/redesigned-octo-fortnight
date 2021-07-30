@@ -8,25 +8,32 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import routes from './routes'
+import VueRouter from 'vue-router'
+import Multiselect from "vue-multiselect"
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Components
+Vue.use(VueRouter)
 
-Vue.component('app', require('./Core/layout/App.vue').default);
+// Third Party components
+Vue.component('multiselect', Multiselect)
+Vue.component('pulse-loader', PulseLoader)
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// Application components
+Vue.component('app', require('./Core/layout/App.vue').default)
+Vue.component('apocalypse-game', require('./Core/layout/ApocalypseGame').default)
 
+// Apocalypse components
+Vue.component('game-base', require('./game/Base').default)
+Vue.component('events-manager', require('./game/admin/Index').default)
+
+const router = new VueRouter({
+    mode: 'history',
+    routes
+})
+
+// Create Vue instances
 const app = new Vue({
-    el: '#app',
-});
+    router: router
+}).$mount('#app')

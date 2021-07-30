@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('sites.technical-beatnik');
+});
+
+Route::get('/idiot-survival', function () {
+    return view('sites.idiot-survival');
 });
 
 Route::get('/dashboard', function () {
@@ -22,3 +26,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+/*
+|--------------------------------------------------------------------------
+| Vue Capture callback required for Vue Router
+|--------------------------------------------------------------------------
+*/
+Route::get('/{vue_capture?}', function () {
+    return view('layouts.app');
+})->where('vue_capture', '^(?!storage).*$');

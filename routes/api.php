@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IdiotSurvival\Admin\AdminController;
+use App\Http\Controllers\IdiotSurvival\Game\GameEventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Frontend routes
+Route::get('/next-event', [GameEventController::class, 'index']);
+
+// Admin Routes
+Route::post('/store-event', [AdminController::class, 'store']);
+Route::get('/event-types', [AdminController::class, 'getEvents']);
+
