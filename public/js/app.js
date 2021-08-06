@@ -2851,16 +2851,15 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: '/idiot-survival',
   component: _Base__WEBPACK_IMPORTED_MODULE_2__.default,
-  name: 'base',
   meta: {
     title: 'Start Screen'
   },
   children: [{
-    path: '/',
+    path: '',
     component: _components_Start__WEBPACK_IMPORTED_MODULE_0__.default,
     name: 'start'
   }, {
-    path: '/game',
+    path: 'game',
     component: _components_GamePlatform__WEBPACK_IMPORTED_MODULE_1__.default,
     name: 'game.index'
   }]
@@ -40116,7 +40115,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "h-screen bg-black text-white font-game-display flex flex-col items-center justify-center"
+        "h-screen bg-black text-white font-game-display flex flex-col justify-center"
     },
     [_vm._m(0), _vm._v(" "), _c("router-view")],
     1

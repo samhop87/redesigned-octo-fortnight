@@ -6,18 +6,17 @@ const routes = [
     {
         path: '/idiot-survival',
         component: Base,
-        name: 'base',
         meta: {
             title: 'Start Screen'
         },
         children: [
             {
-                path: '/',
+                path: '',
                 component: Start,
                 name: 'start'
             },
             {
-                path: '/game',
+                path: 'game',
                 component: GamePlatform,
                 name: 'game.index'
             }

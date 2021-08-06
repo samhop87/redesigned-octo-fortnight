@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Game;
 
-use App\Http\Models\Event;
-use App\Http\Models\Outcome;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\IdiotSurvival\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Choice;
-use App\Http\Models\Event;
-use App\Http\Models\Outcome;
-use App\Models\GameChoice;
-use App\Models\GameEvent;
-use App\Models\GameOutcome;
+use App\Models\Game\GameChoice;
+use App\Models\Game\GameEvent;
+use App\Models\Game\GameOutcome;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -58,7 +54,7 @@ class AdminController extends Controller
     /**
      * @return array
      */
-    public function getEvents()
+    public function getEvents(): array
     {
         // Reformatting the event types to be stages.
         // @todo: make this change part of the game flow, rather than the returned events

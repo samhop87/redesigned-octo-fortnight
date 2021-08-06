@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Game;
 
-use App\Http\Models\Choice;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class GameOutcome extends Model
@@ -24,9 +24,10 @@ class GameOutcome extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function choice() {
-        return $this->belongsTo(Choice::class, 'event_choice_id');
+    public function choice(): BelongsTo
+    {
+        return $this->belongsTo(GameChoice::class, 'event_choice_id');
     }
 }
