@@ -7,9 +7,9 @@
     transform-origin:left;
     animation:grow 1s linear forwards;
     position: absolute;
-    left: 45%;
-    top:100%
+    left: 42%;
+    top:175%
 }
 @keyframes grow{
-    to {width:300px;}
+    to {width:400px;}
 }

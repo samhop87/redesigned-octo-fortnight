@@ -6,9 +6,11 @@
 
 <script>
 import TitleBlock from "../components/Title";
+import CTAButton from "../components/CTAButton";
 
 export default {
     components: {
+        CTAButton,
         TitleBlock
     }
 }

@@ -5,8 +5,10 @@
  */
 
 require('./bootstrap');
+import VueRouter from 'vue-router'
 
 window.Vue = require('vue').default;
+Vue.use(VueRouter)
 
 /**
  * The following block of code may be used to automatically register your
