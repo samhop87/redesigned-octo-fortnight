@@ -1976,6 +1976,12 @@ __webpack_require__.r(__webpack_exports__);
     GameButton: _GameButton__WEBPACK_IMPORTED_MODULE_1__.default,
     CTAButton: _CTAButton__WEBPACK_IMPORTED_MODULE_0__.default
   },
+  props: {
+    propfont: {
+      required: true,
+      type: String
+    }
+  },
   data: function data() {
     return {
       show: false
@@ -2097,12 +2103,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     CTAButton: _components_CTAButton__WEBPACK_IMPORTED_MODULE_1__.default,
     TitleBlock: _components_Title__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  data: function data() {
+    return {
+      backgroundColour: 'bg-neongreen',
+      passedFont: 'text-transparent'
+    };
+  },
+  mounted: function mounted() {
+    this.magicRoundabout();
+  },
+  methods: {
+    magicRoundabout: function magicRoundabout() {
+      var combos = ['from-pink-500 via-pink-100 to-pink-900', 'from-neonpurple via-neonred to-neonblue', 'from-neonred via-turquoise to-neongreen', 'from-neongreen via-neonpurple to-neonblue', 'from-turquoise via-neonpurple to-neonred'];
+      var colors = ['bg-neonred', 'bg-neonpurple', 'bg-turquoise', 'bg-neongreen', 'bg-neonblue'];
+      var fonts = ['font-sans', 'font-serif', 'font-mono', 'font-cursive', 'font-serif'];
+      var i = 0;
+      var that = this;
+      var magic = setInterval(function () {
+        that.backgroundColour = combos[i]; // that.passedFont = fonts[i]
+
+        i++;
+
+        if (i == combos.length) {
+          that.setColour();
+          that.setFont();
+          clearInterval(magic);
+        }
+      }, 250);
+    },
+    setColour: function setColour() {
+      this.backgroundColour = 'bg-gray-100';
+    },
+    setFont: function setFont() {
+      this.passedFont = 'font-display';
+    }
   }
 });
 
@@ -38755,11 +38799,12 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass:
-          "font-display text-2xl md:text-6xl flex flex-row items-center relative"
+        staticClass: "text-2xl md:text-6xl flex flex-row items-center relative"
       },
       [
-        _c("h1", { staticClass: "mr-1 md:mr-7" }, [_vm._v("Technical")]),
+        _c("h1", { staticClass: "mr-1 md:mr-7", class: _vm.propfont }, [
+          _vm._v("Technical")
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -38797,7 +38842,9 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("h1", { staticClass: "ml-1 md:ml-7" }, [_vm._v("Beatnik")])
+        _c("h1", { staticClass: "ml-1 md:ml-7", class: _vm.propfont }, [
+          _vm._v("Beatnik")
+        ])
       ]
     )
   ])
@@ -38860,10 +38907,10 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-full h-screen flex flex-col items-center justify-center text-center"
+        "w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-t",
+      class: _vm.backgroundColour
     },
-    [_c("title-block")],
-    1
+    [_c("div", [_c("title-block", { attrs: { propfont: _vm.passedFont } })], 1)]
   )
 }
 var staticRenderFns = []
@@ -54246,7 +54293,8 @@ Vue.compile = compileToFunctions;
 /******/ 				}
 /******/ 				if(fulfilled) {
 /******/ 					deferred.splice(i--, 1)
-/******/ 					result = fn();
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
 /******/ 				}
 /******/ 			}
 /******/ 			return result;

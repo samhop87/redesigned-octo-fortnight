@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="font-display text-2xl md:text-6xl flex flex-row items-center relative">
-            <h1 class="mr-1 md:mr-7">Technical</h1>
+        <div class="text-2xl md:text-6xl flex flex-row items-center relative">
+            <h1 :class="propfont" class="mr-1 md:mr-7">Technical</h1>
             <div class="hidden md:block splitting-line">
                 <transition-group appear name="slide-fade">
                     <CTAButton v-if="show" :key="1" class="rotate-90 w-11"></CTAButton>
@@ -10,7 +10,7 @@
                     <LinkedInButton v-if="show" :key="4" class="rotate-90 w-11"></LinkedInButton>
                 </transition-group>
             </div>
-            <h1 class="ml-1 md:ml-7">Beatnik</h1>
+            <h1 :class="propfont" class="ml-1 md:ml-7">Beatnik</h1>
         </div>
     </div>
 </template>
@@ -23,6 +23,12 @@ import LinkedInButton from "./LinkedInButton";
 
 export default {
     components: {LinkedInButton, WritingButton, GameButton, CTAButton},
+    props: {
+        propfont: {
+            required: true,
+            type: String
+        }
+    },
     data() {
         return {
             show: false

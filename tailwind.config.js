@@ -9,7 +9,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'display': ['"Barrio"', 'cursive']
+                'display': ['"Barrio"', 'cursive'],
+                'player': ['"Press Start 2P"','cursive'],
             },
             colors: {
                 'turquoise': 'rgb(79, 209, 197)',
@@ -17,9 +18,13 @@ module.exports = {
                 'cleomagenta': 'rgb(219,65,99)',
                 'offblack': 'rgb(71,78,100)',
                 'colman': 'rgb(215,163,53)',
-                '600-live': '#FFB500',
                 'github': '#6e5494',
                 'linkedIn': '#0072b1',
+                'neongreen': '#00FF00',
+                'neonred': '#FD1C03',
+                'neonpurple': '#CC00FF',
+                'darkpurple': '#6E0DD0',
+                'neonblue': '#0062FF'
             },
         },
     },
