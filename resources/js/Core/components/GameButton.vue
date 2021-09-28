@@ -4,7 +4,6 @@
              alt="github">
     </div>
 </template>
-
 <script>
 export default {
     data() {
@@ -12,7 +11,8 @@ export default {
             image_src: 'images/game/skull.jpg',
             counter: 0,
             message: 'This will be a link to Idiot Survival, a game set in an apocalyptic wasteland. But I haven\'t' +
-                ' moved it over yet. The repo for the old version can be found on github.'
+                ' moved over the new game yet. The repo for the old version is on github, and you can check it out in its current' +
+                'form at https://idiot-survival.herokuapp.com/\n'
         }
     },
     methods: {

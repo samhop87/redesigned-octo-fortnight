@@ -39,6 +39,8 @@ export default {
             let i = 0
             let that = this
             let magic = setInterval(() => {
+                // TODO: is this the way we want it to look? Right now using linear gradient backgrounds;
+                // TODO: changing fonts *might* work, but right now seems to make animation janky;
                 that.backgroundColour = combos[i]
                 // that.passedFont = fonts[i]
                 i++;
