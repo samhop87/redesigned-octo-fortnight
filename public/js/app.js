@@ -1853,7 +1853,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    transBlock: {
+      type: Boolean
+    }
+  },
   data: function data() {
     return {
       image_src: 'images/iconmonstr-github-3.svg',
@@ -1881,7 +1889,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    transBlock: {
+      type: Boolean
+    }
+  },
   data: function data() {
     return {
       image_src: 'images/game/skull.jpg',
@@ -1921,7 +1937,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    transBlock: {
+      type: Boolean
+    }
+  },
   data: function data() {
     return {
       image_src: 'images/iconmonstr-linkedin-3.svg',
@@ -1947,6 +1971,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GameButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameButton */ "./resources/js/Core/components/GameButton.vue");
 /* harmony import */ var _WritingButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WritingButton */ "./resources/js/Core/components/WritingButton.vue");
 /* harmony import */ var _LinkedInButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LinkedInButton */ "./resources/js/Core/components/LinkedInButton.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2013,7 +2046,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    transBlock: {
+      type: Boolean
+    }
+  },
   data: function data() {
     return {
       image_src: 'images/game/asteroid.jpg',
@@ -38704,7 +38746,8 @@ var render = function() {
   return _c("div", [
     _c("a", { attrs: { href: _vm.button_link, target: "_blank" } }, [
       _c("img", {
-        staticClass: "rotated hover w-11 cursor-pointer position",
+        staticClass: "w-11 cursor-pointer hover rounded-xl",
+        class: _vm.transBlock ? "rotated position" : "",
         attrs: { src: _vm.image_src, alt: "github" }
       })
     ])
@@ -38735,8 +38778,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("img", {
-      staticClass: "rotated rounded-xl hover w-11 cursor-pointer position",
-      attrs: { src: _vm.image_src, alt: "github" },
+      staticClass: "w-11 cursor-pointer hover rounded-xl",
+      class: _vm.transBlock ? "rotated position" : "",
+      attrs: { src: _vm.image_src, alt: "game button" },
       on: { click: _vm.warning }
     })
   ])
@@ -38767,7 +38811,8 @@ var render = function() {
   return _c("div", [
     _c("a", { attrs: { href: _vm.button_link, target: "_blank" } }, [
       _c("img", {
-        staticClass: "rotated rounded-xl hover w-11 cursor-pointer position",
+        staticClass: "w-11 cursor-pointer hover rounded-xl",
+        class: _vm.transBlock ? "rotated position" : "",
         attrs: { src: _vm.image_src, alt: "github" }
       })
     ])
@@ -38800,12 +38845,33 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "text-2xl md:text-6xl flex flex-row items-center relative"
+        staticClass:
+          "text-4xl md:text-6xl flex flex-col md:flex-row items-center relative"
       },
       [
-        _c("h1", { staticClass: "mr-1 md:mr-7", class: _vm.propfont }, [
-          _vm._v("Technical")
+        _c(
+          "div",
+          {
+            staticClass:
+              "md:hidden flex flex-row justify-around items-center w-full my-6"
+          },
+          [
+            _vm.show ? _c("CTAButton", { staticClass: "w-11" }) : _vm._e(),
+            _vm._v(" "),
+            _vm.show ? _c("GameButton", { staticClass: "w-11" }) : _vm._e()
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "md:hidden", class: _vm.propfont }, [
+          _vm._v("Technical Beatnik")
         ]),
+        _vm._v(" "),
+        _c(
+          "h1",
+          { staticClass: "hidden md:flex mr-1 md:mr-7", class: _vm.propfont },
+          [_vm._v("Technical")]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -38816,24 +38882,34 @@ var render = function() {
               { attrs: { appear: "", name: "slide-fade" } },
               [
                 _vm.show
-                  ? _c("CTAButton", { key: 1, staticClass: "rotate-90 w-11" })
+                  ? _c("CTAButton", {
+                      key: 1,
+                      staticClass: "rotate-90 w-11",
+                      attrs: { "trans-block": true }
+                    })
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.show
-                  ? _c("GameButton", { key: 2, staticClass: "rotate-90 w-11" })
+                  ? _c("GameButton", {
+                      key: 2,
+                      staticClass: "rotate-90 w-11",
+                      attrs: { "trans-block": true }
+                    })
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.show
                   ? _c("WritingButton", {
                       key: 3,
-                      staticClass: "rotate-90 w-11"
+                      staticClass: "rotate-90 w-11",
+                      attrs: { "trans-block": true }
                     })
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.show
                   ? _c("LinkedInButton", {
                       key: 4,
-                      staticClass: "rotate-90 w-11"
+                      staticClass: "rotate-90 w-11",
+                      attrs: { "trans-block": true }
                     })
                   : _vm._e()
               ],
@@ -38843,9 +38919,29 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("h1", { staticClass: "ml-1 md:ml-7", class: _vm.propfont }, [
-          _vm._v("Beatnik")
-        ])
+        _c(
+          "h1",
+          { staticClass: "hidden md:flex ml-1 md:ml-7", class: _vm.propfont },
+          [_vm._v("Beatnik")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "md:hidden flex flex-row justify-around items-center w-full my-6"
+          },
+          [
+            _vm.show
+              ? _c("WritingButton", { staticClass: "rotate-90 w-11" })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.show
+              ? _c("LinkedInButton", { staticClass: "rotate-90 w-11" })
+              : _vm._e()
+          ],
+          1
+        )
       ]
     )
   ])
@@ -38875,7 +38971,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("img", {
-      staticClass: "rotated rounded-xl hover w-11 cursor-pointer position",
+      staticClass: "w-11 cursor-pointer hover rounded-xl",
+      class: _vm.transBlock ? "rotated position" : "",
       attrs: { src: _vm.image_src, alt: "github" },
       on: { click: _vm.warning }
     })

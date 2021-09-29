@@ -1,13 +1,21 @@
 <template>
     <div>
         <a :href="button_link" target="_blank">
-            <img class="rotated hover w-11 cursor-pointer position" :src="image_src" alt="github">
+            <img class="w-11 cursor-pointer hover rounded-xl"
+                 :class="transBlock ? 'rotated position' : ''"
+                 :src="image_src"
+                 alt="github">
         </a>
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        transBlock: {
+            type: Boolean
+        }
+    },
     data() {
         return {
             image_src: 'images/iconmonstr-github-3.svg',

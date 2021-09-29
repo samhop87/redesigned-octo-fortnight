@@ -1,11 +1,20 @@
 <template>
     <div>
-        <img @click="warning" class="rotated rounded-xl hover w-11 cursor-pointer position" :src="image_src" alt="github">
+        <img @click="warning"
+             class="w-11 cursor-pointer hover rounded-xl"
+             :class="transBlock ? 'rotated position' : ''"
+             :src="image_src"
+             alt="github">
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        transBlock: {
+            type: Boolean
+        }
+    },
     data() {
         return {
             image_src: 'images/game/asteroid.jpg',
