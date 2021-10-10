@@ -18,7 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('layouts.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+/*
+|--------------------------------------------------------------------------
+| Vue Capture callback required for Vue Router
+|--------------------------------------------------------------------------
+*/
+Route::get('/{vue_capture?}', function () {
+    return view('layouts.dashboard');
+})->where('vue_capture', '^(?!storage).*$')->middleware(['auth']);
