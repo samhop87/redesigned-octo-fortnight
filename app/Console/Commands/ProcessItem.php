@@ -3,10 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Events\ItemProcessed;
+use App\Models\ProcessableItem;
 use App\Models\User;
-use Database\Factories\ProcessableItemFactory;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Auth;
 
 class ProcessItem extends Command
 {
@@ -41,8 +40,10 @@ class ProcessItem extends Command
      */
     public function handle()
     {
-        $item = (new ProcessableItemFactory)->create();
+        $item = ProcessableItem::factory()->create();
         // Just for testing
-        broadcast(new ItemProcessed($item, User::find(1)));
+        $this->info('testing');
+        broadcast(new ItemProcessed(ProcessableItem::find($item->id), User::find(1)));
+        $this->info('fired');
     }
 }
