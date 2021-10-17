@@ -35,13 +35,13 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    forceTLS: true,
+    forceTLS: false,
     key: 'your-pusher-key',
     wsHost: window.location.hostname,
     wssHost: window.location.hostname,
     wsPort: 6004,
     disableStats: true,
-    encrypted: true,
+    encrypted: false,
     wssPort: 6004,
     enabledTransports: ['ws', 'wss'],
 });
