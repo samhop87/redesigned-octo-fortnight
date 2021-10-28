@@ -21,6 +21,7 @@ Route::get('/dashboard', function () {
     return view('layouts.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+require 'game/web.php';
 require __DIR__.'/auth.php';
 
 /*

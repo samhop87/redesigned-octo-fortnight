@@ -2,7 +2,7 @@ import Index from './Index'
 
 export default [
     {
-        path: '/idiot-survival/events',
+        path: '/game-management/events',
         name: 'events.index',
         component: Index,
         meta: {

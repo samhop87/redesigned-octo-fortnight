@@ -1,11 +1,10 @@
 <template>
-    <div>
-        <img @click="warning"
-             class="w-11 cursor-pointer hover rounded-xl"
+    <a href="/path/to/game">
+        <img class="w-11 cursor-pointer hover rounded-xl"
              :class="transBlock ? 'rotated position' : ''"
              :src="image_src"
              alt="game button">
-    </div>
+    </a>
 </template>
 <script>
 export default {
