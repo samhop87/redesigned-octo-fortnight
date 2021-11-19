@@ -17,6 +17,11 @@
                 Settings (under construction)
             </router-link>
 
+            <router-link :to="{ name: 'weight.index' }" class="mb-3 capitalize font-medium text-sm hover:text-turquoise">
+                <i class="fad fa-computer-classic text-base mr-2"></i>
+                Weight Tracker
+            </router-link>
+
             <router-link :to="{ name: 'websockets.index' }" class="mb-3 capitalize font-medium text-sm hover:text-turquoise">
                 <i class="fad fa-computer-classic text-base mr-2"></i>
                 Websockets
