@@ -14,7 +14,7 @@ class WeightRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check() && auth()->user()->id;
+        return Auth::check();
     }
 
     /**
