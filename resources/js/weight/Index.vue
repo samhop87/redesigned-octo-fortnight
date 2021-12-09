@@ -40,13 +40,15 @@ export default {
     methods: {
         getWeightData() {
             axios.get('/api/weight/index').then(({data}) => {
-                for (let i = 0; i < data.data.length; i++) {
-                    this.dataObject.push(data.data[i].data_object)
-                }
+                if (data && data.data) {
+                    for (let i = 0; i < data.data.length; i++) {
+                        this.dataObject.push(data.data[i].data_object)
+                    }
 
-                this.series = [{
-                    data: this.dataObject
-                }]
+                    this.series = [{
+                        data: this.dataObject
+                    }]
+                }
             })
         },
         submitWeight() {
