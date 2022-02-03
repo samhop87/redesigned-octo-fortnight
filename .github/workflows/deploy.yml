@@ -66,6 +66,7 @@ jobs:
             git reset --hard origin/master
             sudo chmod -R 777 storage bootstrap/cache
             composer install --no-interaction --prefer-dist --optimize-autoloader
+            composer update
             php artisan migrate --force
             php artisan optimize
             php artisan up
