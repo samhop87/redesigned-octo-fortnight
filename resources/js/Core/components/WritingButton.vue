@@ -41,28 +41,6 @@ export default {
                 case 3:
                     this.message = 'YOU WERE WARNED'
                     break
-                case 4:
-                    this.message = 'I\'m going to say something so scathing and hurtful that it will haunt you for years.' +
-                        ' You can avoid this by not clicking me again.'
-                    break
-                case 5:
-                    this.message = 'You asked for this. I didn\'t want to do this...'
-                    break
-                case 6:
-                    this.message = 'Here it is: you actually smell quite strongly of poop.'
-                    break
-                case 7:
-                    this.message = 'I told you it would be devastating. It will haunt you.'
-                    break
-                case 8:
-                    this.message = '"Do I really smell like poop?", you will ask yourself.'
-                    break
-                case 9:
-                    this.message = 'And you\'ll never know if people are lying to you or not.'
-                    break
-                case 10:
-                    this.message = 'I think I\'ve said enough.'
-                    break
                 default:
                     this.message = 'I think I\'ve said enough.'
             }

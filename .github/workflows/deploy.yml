@@ -64,7 +64,7 @@ jobs:
             php artisan down
             git fetch origin master
             git reset --hard origin/master
-            sudo chmod -R 775 storage bootstrap/cache
+            sudo chmod -R 777 storage storage/framework storage/logs bootstrap/cache
             composer install --no-interaction --prefer-dist --optimize-autoloader
             composer update
             php artisan migrate --force
