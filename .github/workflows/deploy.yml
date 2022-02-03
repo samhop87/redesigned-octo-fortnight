@@ -61,9 +61,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           script: |
             php artisan down
-            cd /var/www/technicalbeatnik.com
+            cd /var/www/technicalbeatnik.co.uk
             git fetch origin master
             git reset --hard origin/master
+            chmod -R 777 storage bootstrap/cache
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate --force
             php artisan optimize
