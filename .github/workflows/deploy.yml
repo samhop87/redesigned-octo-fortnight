@@ -60,8 +60,8 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           username: ${{ secrets.USERNAME }}
           script: |
-            php artisan down
             cd /var/www/technicalbeatnik.co.uk
+            php artisan down
             git fetch origin master
             git reset --hard origin/master
             sudo chmod -R 777 storage bootstrap/cache
