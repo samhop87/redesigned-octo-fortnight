@@ -64,7 +64,7 @@ jobs:
             cd /var/www/technicalbeatnik.co.uk
             git fetch origin master
             git reset --hard origin/master
-            echo ${{ secrets.PASSWORD }} | sudo chmod -R 777 storage bootstrap/cache
+            sudo chmod -R 777 storage bootstrap/cache
             composer install --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate --force
             php artisan optimize
