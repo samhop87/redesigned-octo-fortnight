@@ -1,10 +1,11 @@
 <template>
     <div>
-        <img @click="warning"
-             class="w-11 cursor-pointer hover rounded-xl"
-             :class="transBlock ? 'rotated position' : ''"
-             :src="image_src"
-             alt="game button">
+        <a :href="button_link" target="_blank">
+            <img class="w-11 cursor-pointer hover rounded-xl"
+                 :class="transBlock ? 'rotated position' : ''"
+                 :src="image_src"
+                 alt="github">
+        </a>
     </div>
 </template>
 <script>
@@ -17,10 +18,7 @@ export default {
     data() {
         return {
             image_src: 'images/game/skull.jpg',
-            counter: 0,
-            message: 'This will be a link to Idiot Survival, a game set in an apocalyptic wasteland. But I haven\'t' +
-                ' moved over the new game yet. The repo for the old version is on github, and you can check it out in its current' +
-                'form at https://idiot-survival.herokuapp.com/\n'
+            button_link: 'https://idiot-survival.herokuapp.com/'
         }
     },
     methods: {
