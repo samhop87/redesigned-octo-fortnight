@@ -1,7 +1,7 @@
 <template>
     <div>
         <a :href="button_link" target="_blank">
-            <img class="w-11 cursor-pointer hover rounded-xl"
+            <img class="w-11 cursor-pointer hover rounded-xl p-2 border-black border border-4 bg-black"
                  :class="transBlock ? 'rotated position' : ''"
                  :src="image_src"
                  alt="github">
@@ -17,8 +17,8 @@ export default {
     },
     data() {
         return {
-            image_src: 'images/game/skull.jpg',
-            button_link: 'https://idiot-survival.herokuapp.com/'
+            image_src: 'images/game/cloudwriter-logos-svg-cropped.svg',
+            button_link: 'https://cloudwriter.technicalbeatnik.co.uk/'
         }
     },
     methods: {

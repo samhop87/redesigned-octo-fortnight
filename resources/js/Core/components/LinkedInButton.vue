@@ -35,6 +35,6 @@ export default {
 }
 
 .position {
-    margin: -82px 44px 0 317px;
+    margin: -86px 44px 0 317px;
 }
 </style>
